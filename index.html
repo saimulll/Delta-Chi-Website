@@ -23,3 +23,558 @@
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.5;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:0 18px}
+
+    /* NAV */
+    .nav{
+      position: sticky; top:0; z-index:50;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:700;
+      letter-spacing:.2px;
+    }
+    .brand-badge{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, var(--msu-green), var(--dchi-red));
+      box-shadow: var(--shadow);
+    }
+    .nav-links{
+      display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;
+      font-size:14px; color:#111;
+    }
+    .nav-links a{
+      padding:8px 10px; border-radius:10px;
+    }
+    .nav-links a:hover{background:rgba(0,0,0,.05)}
+    .cta{
+      background: var(--dchi-red);
+      color:white;
+      padding:9px 12px;
+      border-radius:12px;
+      font-weight:600;
+      border:1px solid rgba(0,0,0,.08);
+    }
+    .cta:hover{filter:brightness(.95)}
+
+    /* HERO */
+    .hero{
+      background:
+        radial-gradient(1100px 500px at 20% 0%, rgba(24,69,59,.18), transparent 55%),
+        radial-gradient(900px 450px at 90% 10%, rgba(139,0,0,.15), transparent 55%),
+        linear-gradient(180deg, rgba(216,198,144,.22), transparent 55%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner{
+      padding:48px 0 26px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .hero-inner{grid-template-columns: 1fr}
+      .nav-links{display:none}
+    }
+    .kicker{color:var(--muted); font-size:14px}
+    h1{margin:.25rem 0; font-size:44px; line-height:1.05}
+    @media (max-width: 520px){h1{font-size:36px}}
+    .sub{margin:14px 0 18px; color:#1f2937; max-width:60ch}
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:11px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:white;
+      font-weight:700;
+      font-size:14px;
+    }
+    .btn.primary{background:var(--msu-green); color:white; border-color:transparent}
+    .btn.primary:hover{filter:brightness(.95)}
+    .btn:hover{background:rgba(0,0,0,.04)}
+
+    .hero-card{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.85);
+      box-shadow: var(--shadow);
+      padding:18px;
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .logos{
+      display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+    }
+    .logo{
+      height:44px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:white;
+      padding:6px 10px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .logo img{height:30px; width:auto; display:block}
+    .logo span{font-size:12px; color:var(--muted); font-weight:700}
+
+    /* SECTION */
+    section{padding:34px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin-bottom:14px;
+    }
+    h2{margin:0; font-size:22px}
+    .note{color:var(--muted); font-size:13px}
+
+    /* STATS */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:12px;
+    }
+    @media (max-width: 860px){.stats{grid-template-columns: repeat(2, minmax(0,1fr))}}
+    .stat{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background:white;
+      padding:14px;
+    }
+    .stat .num{font-size:28px; font-weight:800}
+    .stat .lbl{color:var(--muted); font-size:13px; font-weight:700}
+
+    /* CARDS */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 860px){.grid-2{grid-template-columns: 1fr}}
+    .card{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+      padding:16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.05);
+    }
+    .card.soft{background: var(--card)}
+    .pill{
+      display:inline-flex; align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(216,198,144,.35);
+      border:1px solid rgba(216,198,144,.6);
+      font-size:12px;
+      font-weight:800;
+    }
+
+    /* LEADERS */
+    .leaders{
+      display:grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap:14px;
+    }
+    @media (max-width: 980px){.leaders{grid-template-columns: repeat(3, minmax(0,1fr))}}
+    @media (max-width: 620px){.leaders{grid-template-columns: repeat(2, minmax(0,1fr))}}
+    .leader{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:white;
+    }
+    .leader img{
+      width:100%; height:170px; object-fit:cover; display:block;
+      background: linear-gradient(135deg, rgba(24,69,59,.2), rgba(139,0,0,.18));
+    }
+    .leader .info{padding:12px}
+    .leader .name{font-weight:800}
+    .leader .role{color:var(--muted); font-size:13px; font-weight:700}
+
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:10px;
+    }
+    @media (max-width: 860px){.gallery{grid-template-columns: repeat(2, minmax(0,1fr))}}
+    .gallery img{
+      width:100%; height:160px; object-fit:cover;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.03);
+    }
+
+    /* CONTACT */
+    form{display:grid; gap:10px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      font: inherit;
+      background:white;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .submit{
+      background: var(--dchi-red);
+      color:white;
+      border: none;
+      padding:12px 14px;
+      border-radius:14px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .submit:hover{filter:brightness(.95)}
+    .tiny{font-size:12px; color:var(--muted)}
+
+    /* FOOTER */
+    footer{
+      border-top: 1px solid var(--border);
+      padding:18px 0;
+      background: white;
+      color: var(--muted);
+      font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>Delta Chi · MSU Prov Chapter</span>
+      </a>
+
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#news">News</a>
+        <a href="#leadership">Leadership Team</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+
+      <a class="cta" href="#contact">JOIN</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div id="home" class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="kicker">Michigan State University</div>
+        <h1>Delta Chi Fraternity</h1>
+        <div class="sub">
+          Become part of our vibrant community. We’re building brotherhood, developing leaders,
+          and serving campus and East Lansing.
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact">Join / Interest Form</a>
+          <a class="btn" href="#leadership">Meet Leadership</a>
+          <a class="btn" href="#events">See Events</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="pill">Red • Buff • Green • White</div>
+        <div class="logos">
+          <!-- Upload these files to the repo root (same folder as index.html) -->
+          <div class="logo">
+            <img src="msu-logo.png" alt="MSU logo">
+            <span>MSU</span>
+          </div>
+          <div class="logo">
+            <img src="delta-chi-logo.png" alt="Delta Chi logo">
+            <span>ΔΧ</span>
+          </div>
+        </div>
+        <div class="tiny">
+          Tip: If logos don’t show, upload files named <b>msu-logo.png</b> and <b>delta-chi-logo.png</b>
+          into the repo (same level as <b>index.html</b>).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT + STATS -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>About Us</h2>
+        <div class="note">MSU Prov Chapter</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <p style="margin-top:0">
+            The objectives of our chapter are to uphold the ideals and standards of The Delta Chi
+            Fraternity and to build a strong chapter where membership is an honor and privilege.
+          </p>
+          <p style="margin-bottom:0">
+            We foster genuine brotherhood, develop leadership, and aim to “make good men great and
+            great men excellent.”
+          </p>
+        </div>
+
+        <div class="card soft">
+          <div class="stats" style="margin:0">
+            <div class="stat">
+              <div class="num">5</div>
+              <div class="lbl">Officers</div>
+            </div>
+            <div class="stat">
+              <div class="num">—</div>
+              <div class="lbl">Members</div>
+            </div>
+            <div class="stat">
+              <div class="num">—</div>
+              <div class="lbl">Events</div>
+            </div>
+            <div class="stat">
+              <div class="num">—</div>
+              <div class="lbl">News</div>
+            </div>
+          </div>
+          <div class="tiny" style="margin-top:10px">
+            You can change these numbers by editing <b>index.html</b>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="container">
+      <div class="section-title">
+        <h2>Upcoming Events</h2>
+        <div class="note">Recruitment • Philanthropy • Brotherhood</div>
+      </div>
+
+      <div class="card">
+        <b>There are no upcoming events.</b>
+        <div class="tiny" style="margin-top:6px">
+          Add events by listing them here (e.g., “Rush Night — Feb 3, 7pm — Location”).
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="container">
+      <div class="section-title">
+        <h2>News</h2>
+        <div class="note">Latest updates</div>
+      </div>
+
+      <div class="card">
+        <b>There is no news.</b>
+        <div class="tiny" style="margin-top:6px">
+          Add short posts like “Philanthropy fundraiser recap” or “New member class announced.”
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBER BENEFITS -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Member Benefits</h2>
+        <div class="note">What you gain</div>
+      </div>
+
+      <div class="cards" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:14px;">
+        <div class="card">
+          <b>Events & Activities</b>
+          <div class="tiny" style="margin-top:6px">Stay in the loop on what we have planned.</div>
+        </div>
+        <div class="card">
+          <b>Exclusive Resources</b>
+          <div class="tiny" style="margin-top:6px">Guidance, alumni network, and development.</div>
+        </div>
+        <div class="card">
+          <b>Connections</b>
+          <div class="tiny" style="margin-top:6px">Meet new students with shared ambition.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership">
+    <div class="container">
+      <div class="section-title">
+        <h2>Leadership Team</h2>
+        <div class="note">Meet our officers</div>
+      </div>
+
+      <div class="leaders">
+        <!-- Upload officer photos to repo root (same folder as index.html) -->
+        <div class="leader">
+          <img src="president.jpg" alt="President photo">
+          <div class="info">
+            <div class="name">Name Here</div>
+            <div class="role">President</div>
+          </div>
+        </div>
+
+        <div class="leader">
+          <img src="vp.jpg" alt="Vice President photo">
+          <div class="info">
+            <div class="name">Name Here</div>
+            <div class="role">Vice President</div>
+          </div>
+        </div>
+
+        <div class="leader">
+          <img src="secretary.jpg" alt="Secretary photo">
+          <div class="info">
+            <div class="name">Name Here</div>
+            <div class="role">Secretary</div>
+          </div>
+        </div>
+
+        <div class="leader">
+          <img src="treasurer.jpg" alt="Treasurer photo">
+          <div class="info">
+            <div class="name">Name Here</div>
+            <div class="role">Treasurer</div>
+          </div>
+        </div>
+
+        <div class="leader">
+          <img src="membership.jpg" alt="Membership Director photo">
+          <div class="info">
+            <div class="name">Name Here</div>
+            <div class="role">Membership Director</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tiny" style="margin-top:10px">
+        To show pics: upload files named <b>president.jpg</b>, <b>vp.jpg</b>, <b>secretary.jpg</b>, <b>treasurer.jpg</b>, <b>membership.jpg</b>
+        into the repo root.
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Brotherhood Gallery</h2>
+        <div class="note">Photos</div>
+      </div>
+
+      <div class="gallery">
+        <!-- Upload these images (or change filenames) -->
+        <img src="gallery1.jpg" alt="Gallery photo 1">
+        <img src="gallery2.jpg" alt="Gallery photo 2">
+        <img src="gallery3.jpg" alt="Gallery photo 3">
+        <img src="gallery4.jpg" alt="Gallery photo 4">
+      </div>
+
+      <div class="tiny" style="margin-top:10px">
+        Upload <b>gallery1.jpg</b>…<b>gallery4.jpg</b> (or edit the filenames above).
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="container">
+      <div class="section-title">
+        <h2>Resources</h2>
+        <div class="note">Links & documents</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <b>Useful Links</b>
+          <div class="tiny" style="margin-top:6px">
+            • Chapter Instagram<br>
+            • National Delta Chi<br>
+            • Philanthropy partner<br>
+            • Rush info PDF
+          </div>
+        </div>
+        <div class="card">
+          <b>Documents</b>
+          <div class="tiny" style="margin-top:6px">
+            Upload PDFs into the repo and link them here.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <div class="note">Recruitment & general inquiries</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <b>Get in touch</b>
+          <div class="tiny" style="margin-top:8px">
+            E: <span style="color:#111; font-weight:700;">your-email@msu.edu</span><br>
+            P: <span style="color:#111; font-weight:700;">(xxx) xxx-xxxx</span><br><br>
+            Location: East Lansing, Michigan
+          </div>
+          <div class="tiny" style="margin-top:10px">
+            (Edit these lines in <b>index.html</b>.)
+          </div>
+        </div>
+
+        <div class="card">
+          <b>Interest Form</b>
+          <div class="tiny" style="margin-top:6px">
+            This basic form opens the visitor’s email app and sends to your email.
+          </div>
+
+          <!-- Simple mailto form: works on GitHub Pages -->
+          <form action="mailto:your-email@msu.edu" method="post" enctype="text/plain">
+            <input name="Name" placeholder="Your Name" required>
+            <input name="Email" placeholder="Email Address" required>
+            <textarea name="Message" placeholder="Message" required></textarea>
+            <button class="submit" type="submit">Send</button>
+            <div class="tiny">If you want a “real” form (no email app), say so and I’ll set it up free using Formspree.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap;">
+      <div>© <span id="y"></span> Delta Chi — Michigan State University Prov Chapter</div>
+      <div>
+        <a href="#home" style="text-decoration:underline">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
